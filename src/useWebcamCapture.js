@@ -107,5 +107,5 @@ export const useWebcamCapture = (stickerImg, title) => {
     [canvasRef, title]
   );
 
-  return [onVideoRef, onCanvasRef, onCapture, picture];
+  return [onVideoRef, onCanvasRef, onCapture, picture, setPicture];
 };
