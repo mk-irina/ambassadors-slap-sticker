@@ -1,3 +1,6 @@
+import { GoShareAndroid } from "react-icons/go";
+import { FiDownload } from "react-icons/fi";
+
 
 export const Button = ({text, onClick, icon}) => {
     return (
@@ -15,3 +18,16 @@ export const IconButton = ({icon, onClick}) => {
         </button>
     )
 }
+
+export const ShareButton = () => {
+    return (
+        <Button text={'Share'} icon={<GoShareAndroid />} />
+    )
+}
+
+export const DownloadButton = () => {
+    return (
+        <Button text={'Download'} icon={<FiDownload />} />
+    )
+}
+

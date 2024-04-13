@@ -5,11 +5,11 @@ export const StickersGallery = ({setSticker, stickers}) => {
           Select your sticker...
           </h3>
       
-      <div className="flex gap-5 m-2 p-2">
+      <div className="flex  gap-3 w-full overflow-x-auto">
       {stickers.map((sticker, ind) => {
           return (
-          <button onClick={() => setSticker(sticker)} key={ind}>
-            <img src={sticker.url} alt="slap" className="h-28 shadow-sm bg-white rounded-md"/>
+          <button onClick={() => setSticker(sticker)} key={ind} className="size-28 shadow-sm bg-white rounded-md flex-shrink-0">
+            <img src={sticker.url} alt="slap" className="h-full w-full object-contain"/>
           </button>
           )
         })}

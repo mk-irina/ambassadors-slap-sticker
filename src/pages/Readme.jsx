@@ -1,7 +1,8 @@
 export const Readme = () => {
     return (
-        <main>
-        <h2>Devtest Readme</h2>
+        <main className="mt-14 w-4/5 m-auto max-w-screen-lg py-5 readme">
+        <h2 className="text-3xl font-semibold">Devtest Readme</h2>
+        <hr></hr>
         <p>
           Hello candidate, Welcome to our little dev test. The goal of this
           exercise, is to asses your general skill level, and give us
@@ -9,13 +10,14 @@ export const Readme = () => {
         </p>
         <section>
           <h3>What this app should do</h3>
+          <hr></hr>
           <p>
             SlapSticker is an app that lets users to slap stickers on their
             face, using their webcam. Functionality wise the app works, but
             the ui needs some love. We'd like for you to extend this
             prototype to make it look and feel it bit better.
           </p>
-          <p>These are the basic requirements:</p>
+          <p className="readme-subtitle">These are the basic requirements:</p>
           <ul>
             <li>User can pick a sticker</li>
             <li>User can give the captured image a title</li>
@@ -34,7 +36,7 @@ export const Readme = () => {
             However, we would like for you to show off your strengths as a
             developer by improving the app.
           </p>
-          <p>Some ideas (no need to do all):</p>
+          <p className="readme-subtitle">Some ideas (no need to do all):</p>
           <ul>
             <li>Make it look really nice</li>
             <li>Let users pick from multiple (custom) stickers</li>
@@ -47,7 +49,7 @@ export const Readme = () => {
           </ul>
         </section>
         <section>
-          <h3> quickstart</h3>
+          <h3>Quickstart</h3>
           <ul>
             <li>You can clone this repo to get started </li>
             <li>run `$ npm install` to install deps</li>

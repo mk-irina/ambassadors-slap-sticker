@@ -3,42 +3,43 @@ import { useState } from "react";
 import { useWebcamCapture } from "./useWebcamCapture";
 // import logo from './logo.svg'
 import logo from "./slap.png";
-// import yoda from "./yoda.png";
-// import golum from "./golum.png";
-// import rick from "./rick.png";
-// import face1 from "./face1.png";
-// import face2 from "./face2.png";
-// import face3 from "./face3.png";
-// import face4 from "./face4.png";
-// import face5 from "./face5.png";
-// import dart from "./dart.png";
-// import will from "./will.png";
-// import hand from "./hand1.png";
+import yoda from ".//images/yoda.png";
+import golum from ".//images/golum.png";
+import rick from ".//images/rick.png";
+import face1 from ".//images/face1.png";
+import face2 from ".//images/face2.png";
+import face3 from ".//images/face3.png";
+import face4 from ".//images/face4.png";
+import face5 from ".//images/face5.png";
+import dart from ".//images/dart.png";
+import will from ".//images/will.png";
+import hand from ".//images/hand1.png";
 
 import { Link, Routes, Route } from "react-router-dom";
 
 import { Header } from "./components/Header";
 import { StickersGallery } from "./components/StickersGallery";
 import { WebcamFeed } from "./components/WebcamFeed";
-import { Readme } from "./components/Readme";
+import { Readme } from "./pages/Readme";
 import { Modal } from "./components/Modal";
+import { Gallery } from "./pages/Gallery";
 
 // import { Button } from "@material-tailwind/react";
 // import { Dialog } from "@material-tailwind/react";
 
 const stickers = [
   logo,
-  // yoda,
-  // golum,
-  // rick,
+  yoda,
+  golum,
+  rick,
   // face1,
-  // face2,
-  // face3,
-  // face4,
-  // face5,
-  // dart,
-  // will,
-  // hand,
+  face2,
+  face3,
+  face4,
+  face5,
+  dart,
+  will,
+  hand,
 ].map((url) => {
   const img = document.createElement("img");
   img.src = url;
@@ -61,6 +62,8 @@ function App(props) {
     picture, // latest captured picture data object
   ] = useWebcamCapture(sticker?.img, title);
 
+  const picturesGallery = [{ picture, title }];
+
   return (
     <div className="bg-[#F1F3F5] max-w-full">
       <Header />
@@ -69,7 +72,7 @@ function App(props) {
         <Route
           path="/"
           element={
-            <main className="w-3/4 max-w-screen-lg m-auto">
+            <main className="w-4/5 max-w-screen-lg m-auto">
               <StickersGallery setSticker={setSticker} stickers={stickers} />
               <WebcamFeed
                 handleCanvasRef={handleCanvasRef}
@@ -80,9 +83,12 @@ function App(props) {
             </main>
           }
         />
-
         {/* /** * Readme route */}
         <Route path="/readme" element={<Readme />} />
+        <Route
+          path="/gallery"
+          element={<Gallery pictures={stickers} title={title} />}
+        />
       </Routes>
     </div>
   );
