@@ -8,13 +8,11 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@material-tailwind/react";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

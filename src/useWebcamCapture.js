@@ -107,5 +107,14 @@ export const useWebcamCapture = (stickerImg, title) => {
     [canvasRef, title]
   );
 
-  return [onVideoRef, onCanvasRef, onCapture, picture, setPicture];
+  const resetPicture = () => setPicture(undefined);
+
+  return [
+    onVideoRef,
+    onCanvasRef,
+    onCapture,
+    picture,
+    setPicture,
+    resetPicture,
+  ];
 };

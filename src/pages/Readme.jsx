@@ -2,7 +2,6 @@ export const Readme = () => {
     return (
         <main className="mt-14 w-4/5 m-auto max-w-screen-lg py-5 readme">
         <h2 className="text-3xl font-semibold">Devtest Readme</h2>
-        <hr></hr>
         <p>
           Hello candidate, Welcome to our little dev test. The goal of this
           exercise, is to asses your general skill level, and give us
@@ -10,7 +9,6 @@ export const Readme = () => {
         </p>
         <section>
           <h3>What this app should do</h3>
-          <hr></hr>
           <p>
             SlapSticker is an app that lets users to slap stickers on their
             face, using their webcam. Functionality wise the app works, but

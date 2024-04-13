@@ -4,18 +4,32 @@ import { ShareButton } from "./Button";
 import { DownloadButton } from "./Button";
 import { SlPicture } from "react-icons/sl";
 import { SlClose } from "react-icons/sl";
-import { FiEdit } from "react-icons/fi";
-import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import { Button, IconButton } from "./Button";
 import { Link } from "react-router-dom";
+import { saveAs } from 'file-saver';
+import { shareFile } from '../utils/shareFile';
 
-export const Modal = ({picture, setTitle, title}) => {
+export const Modal = ({picture, onPictureReset, onPictureUpdate}) => {
+  const DEFAULT_TITLE = 'SLAPPE!';
+
   const [open, setOpen] = useState(false)
-  const [activeEdit, setActiveEdit] = useState(false)
+  const [title, setTitle] = useState(DEFAULT_TITLE);
 
-    const handleOpen = () => setOpen((isOpen) => !isOpen)
-    const handleEdit = () => setActiveEdit(true)
-    const handleSaveEdit = () => setActiveEdit(false)
+  const downLoadPicture = () => {
+    saveAs(picture.dataUri, picture.title)
+  }
+
+
+
+    const handleModal = () => {
+      setOpen(false)
+      onPictureReset()
+    setTitle(DEFAULT_TITLE)
+    }
+
+    const handleSaveEdit = () => {
+      onPictureUpdate({...picture, title})
+    }
 
     useEffect(()=>{
       if (picture !== undefined) {
@@ -24,44 +38,39 @@ export const Modal = ({picture, setTitle, title}) => {
     }, [picture]);
 
     return (
-        <Dialog open={open} handler={handleOpen} className="py-5 px-7 flex flex-col gap-5 text-[#23374B]">
+        <Dialog size="xl" open={open} handler={handleModal} className="py-5 px-7 flex flex-col gap-5 text-[#23374B]">
             <div>
             <section className="gallery">
               <div className="flex justify-between items-center mb-3">
               <h3 className="text-2xl">Cherish this moment forever!</h3>
-              <IconButton onClick={handleOpen} icon={<SlClose />} />
+              <IconButton onClick={handleModal} icon={<SlClose size={'25px'} />} />
               </div>
         {picture && (
           <div className="picture">
 
             <div className="flex gap-3 items-center p-1">
-            {activeEdit ? (
-              <div className='flex items-center gap-3'>
+
+              <div className='flex items-center gap-3 h-9'>
+              <h3 className="text-lg">Give it a name</h3>
               <input
               type="text"
               value={title}
               onChange={(ev) => setTitle(ev.target.value)}
-              className="border-b-2"
+              onBlur={handleSaveEdit}
+              className="border-b-2 text-xl w-min"
             />
-            <IconButton onClick={handleSaveEdit} icon={<IoCheckmarkCircleOutline className="size-7" />} />
             </div>
-            ) : (
-              <div className='flex gap-3'> 
-                <h3 className="text-xl">{picture.title}</h3>
-                <IconButton onClick={handleEdit} icon={<FiEdit />} />
-              </div>
-            )}
             </div>
 
             <img src={picture.dataUri} alt="slap" />
 
             <div className="flex justify-between mt-5">
             <div className="flex gap-5">
-              <ShareButton />
-              <DownloadButton />
+              <ShareButton onClick={() => shareFile(picture)} />
+              <DownloadButton onClick={downLoadPicture} />
               </div>
               <Link to="/gallery">
-              <Button text={'See in gallery'} icon={<SlPicture />} />
+              <Button onClick={handleModal} text={'See in gallery'} icon={<SlPicture />} />
               </Link>
             </div>
           </div>

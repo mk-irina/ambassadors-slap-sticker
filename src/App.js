@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { createUseStyles } from "react-jss";
 import { useWebcamCapture } from "./useWebcamCapture";
 // import logo from './logo.svg'
@@ -23,9 +23,6 @@ import { WebcamFeed } from "./components/WebcamFeed";
 import { Readme } from "./pages/Readme";
 import { Modal } from "./components/Modal";
 import { Gallery } from "./pages/Gallery";
-
-// import { Button } from "@material-tailwind/react";
-// import { Dialog } from "@material-tailwind/react";
 
 const stickers = [
   logo,
@@ -52,7 +49,23 @@ function App(props) {
   // currently active sticker
   const [sticker, setSticker] = useState();
   // title for the picture that will be captured
-  const [title, setTitle] = useState("SLAPPE!");
+
+  const [pictures, setPictures] = useState([]); // idealy should be fetched from server
+
+  const savePicture = (picture) => {
+    setPictures((prevState) => {
+      prevState.unshift(picture);
+      return prevState;
+    });
+  };
+
+  const updatePicture = (picture) => {
+    setPictures((prevState) => {
+      prevState.shift();
+      prevState.unshift(picture);
+      return prevState;
+    });
+  };
 
   // webcam behavior hook
   const [
@@ -60,12 +73,18 @@ function App(props) {
     handleCanvasRef, // callback function to set ref for main canvas element
     handleCapture, // callback function to trigger taking the picture
     picture, // latest captured picture data object
-  ] = useWebcamCapture(sticker?.img, title);
+    resetPicture,
+  ] = useWebcamCapture(sticker?.img, "SLAPPE!");
 
-  const picturesGallery = [{ picture, title }];
+  useEffect(() => {
+    if (picture === undefined) {
+      return;
+    }
+    savePicture(picture);
+  }, [picture]);
 
   return (
-    <div className="bg-[#F1F3F5] max-w-full">
+    <div className="bg-[#F1F3F5] max-w-full py-12 px-20">
       <Header />
       <Routes>
         {/* /** * Main app route */}
@@ -79,16 +98,17 @@ function App(props) {
                 handleVideoRef={handleVideoRef}
                 handleCapture={handleCapture}
               />
-              <Modal picture={picture} title={title} setTitle={setTitle} />
+              <Modal
+                onPictureReset={resetPicture}
+                picture={picture}
+                onPictureUpdate={updatePicture}
+              />
             </main>
           }
         />
         {/* /** * Readme route */}
         <Route path="/readme" element={<Readme />} />
-        <Route
-          path="/gallery"
-          element={<Gallery pictures={stickers} title={title} />}
-        />
+        <Route path="/gallery" element={<Gallery pictures={pictures} />} />
       </Routes>
     </div>
   );

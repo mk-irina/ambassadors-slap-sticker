@@ -4,7 +4,7 @@ import { FiDownload } from "react-icons/fi";
 
 export const Button = ({text, onClick, icon}) => {
     return (
-        <button onClick={onClick} className="py-1 px-3 flex gap-3 justify-between items-center border border-[#D1D4D8] bg-[#F1F3F5] rounded-md ">
+        <button onClick={onClick} className="py-1 px-3 flex gap-3 justify-between items-center border border-[#D1D4D8] bg-[#F1F3F5] hover:bg-[#dce3e9] rounded-md ">
             {text} 
             {icon} 
         </button>
@@ -19,15 +19,15 @@ export const IconButton = ({icon, onClick}) => {
     )
 }
 
-export const ShareButton = () => {
+export const ShareButton = ({onClick}) => {
     return (
-        <Button text={'Share'} icon={<GoShareAndroid />} />
+        <Button onClick={onClick} text={'Share'} icon={<GoShareAndroid />} />
     )
 }
 
-export const DownloadButton = () => {
+export const DownloadButton = ({onClick}) => {
     return (
-        <Button text={'Download'} icon={<FiDownload />} />
+        <Button onClick={onClick} text={'Download'} icon={<FiDownload />} />
     )
 }
 
