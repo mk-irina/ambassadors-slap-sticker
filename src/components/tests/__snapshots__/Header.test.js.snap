@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders header component 1`] = `
+<div>
+  <header
+    class="flex flex-col gap-6"
+  >
+    <div
+      class="flex flex-row justify-between items-center"
+    >
+      <a
+        alt="SlapSticker"
+        class="logo"
+        href="/"
+      >
+        <h1
+          class="text-4xl font-medium"
+        >
+          SlapSticker
+        </h1>
+      </a>
+      <nav>
+        <ul
+          class="flex gap-10 text-lg"
+        >
+          <li>
+            <a
+              href="/"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/readme"
+            >
+              Readme
+            </a>
+          </li>
+          <li>
+            <a
+              href="/gallery"
+            >
+              Gallery
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <p
+      class="text-center text-2xl max-w-xl m-auto"
+    >
+      Have you ever said something so dumb, you just wanted to slap yourself? Well now you can!
+    </p>
+  </header>
+</div>
+`;

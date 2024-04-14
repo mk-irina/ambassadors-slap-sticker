@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header className="flex flex-col gap-6">
       <div className="flex flex-row justify-between items-center">
-        <Link to="/">
+        <Link to="/" alt="SlapSticker" className="logo">
           <h1 className="text-4xl font-medium">SlapSticker</h1>
         </Link>
 

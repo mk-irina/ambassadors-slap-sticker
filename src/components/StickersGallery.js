@@ -57,7 +57,7 @@ export const StickersGallery = ({ setSticker }) => {
             <button
               onClick={() => setSticker(sticker)}
               key={idx}
-              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0"
+              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0 sticker-button"
             >
               <img
                 src={sticker.url}

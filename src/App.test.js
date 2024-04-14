@@ -1,8 +1,14 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const title = screen.getByText(/SlapSticker/i);
+test('renders logo link', () => {
+  const { container } = render(
+    <MemoryRouter initialEntries={['/readme']}>
+      <App />
+    </MemoryRouter>
+  );
+  const title = container.querySelector('.logo');
   expect(title).toBeInTheDocument();
 });
