@@ -76,7 +76,7 @@ function App(props) {
         {/* /** * Readme route */}
         <Route path="/readme" element={<Readme />} />
 
-        {/* /** * Readme route */}
+        {/* /** * Gallery route */}
         <Route path="/gallery" element={<Gallery pictures={pictures} />} />
       </Routes>
     </div>
