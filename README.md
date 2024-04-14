@@ -1,55 +1,40 @@
-# Devtest Readme
+# SlapSticker
 
-Hello candidate, Welcome to our little dev test. The goal of this exercise, is to asses your general skill level, and give us something to talk about at our next appointment.
+Welcome to SlapSticker, a fun application that allows users to add stickers to their faces using their webcam!
 
-## What this app should do
+## Demo
 
-SlapSticker is an app that lets users to slap stickers on their face, using their webcam. Functionality wise the app works, but the ui needs some love. We'd like for you to extend this prototype to make it look and feel it bit better.
+Visit the SlapSticker via [link](https://slap-sticker-mk-irina.netlify.app/)
 
-### These are the basic requirements:
+## What SlapSticker Does
 
-- User can pick a sticker
-- User can give the captured image a title
-- User can place the sticker over the webcam image
-- User can capture the webcam image with sticker
+SlapSticker enables users to choose stickers, choose effects, place stickers over their webcam feed, and capture images with stickers applied. Users can add titles to their captured images, share these images, or download them.
 
-##What we want you to do
+### Features:
 
-Off course we didn't expect you to build a full fledged app in such a short time frame. That's why the basic requirements are already implemented.
+- **Sticker Selection:** Choose from a variety of pre-installed stickers.
+- **Effects Selection:** Choose an effect.
+- **Real-time Overlay:** Place stickers in real-time over the webcam feed.
+- **Image Capture:** Capture images with stickers applied directly from the webcam.
+- **Title Assignment:** Add titles to your images to personalize them.
+- **Download and Share:** Download or share your creations easily with built-in sharing options.
+- **Gallery:** View and manage captured images in a gallery format.
 
-However, we would like for you to show off your strengths as a developer by improving the app.
+### Getting Started
 
-### Some ideas (no need to do all):
+To run the app locally, follow these steps:
 
-- Make it look really nice
-- Let users pick from multiple (custom) stickers
-- Improve the workflow and ux
-- Show multiple captured images in a gallery
-- Let users download or share the captured pics
-- Add super cool effects to webcam feed
-- Organize, document and test the code
-- Integrate with zoom, teams, meet...
-
-### quickstart
-
-- You can clone this repo to get started
-- run `$ npm install` to install deps
-- run `$ npm run start` to start dev environment
-- push it to github or gitlab to share it with us.
-
-P.s. We've already added some libraries to make your life easier (Create React App, Jss, React Router), but feel free to add more.
-
-# Original Create React App
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Clone this repository to your local machine.
+- Navigate to the project directory.
+- Install dependencies using npm install.
+- Start the development server with npm run start.
+- Open your web browser and go to http://localhost:3000 to view the app.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -57,7 +42,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm run test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -71,43 +56,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
