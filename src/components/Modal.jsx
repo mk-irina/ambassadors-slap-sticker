@@ -19,17 +19,15 @@ export const Modal = ({picture, onPictureReset, onPictureUpdate}) => {
     saveAs(picture.dataUri, picture.title)
   }
 
-
-
-    const handleModal = () => {
-      setOpen(false)
-      onPictureReset()
+  const handleModal = () => {
+    setOpen(false)
+    onPictureReset()
     setTitle(DEFAULT_TITLE)
-    }
+  }
 
-    const handleSaveEdit = () => {
-      onPictureUpdate({...picture, title})
-    }
+  const handleSaveEdit = () => {
+    onPictureUpdate({...picture, title})
+  }
 
     useEffect(()=>{
       if (picture !== undefined) {
@@ -47,9 +45,7 @@ export const Modal = ({picture, onPictureReset, onPictureUpdate}) => {
               </div>
         {picture && (
           <div className="picture">
-
             <div className="flex gap-3 items-center p-1">
-
               <div className='flex items-center gap-3 h-9'>
               <h3 className="text-lg">Give it a name</h3>
               <input
@@ -61,9 +57,7 @@ export const Modal = ({picture, onPictureReset, onPictureUpdate}) => {
             />
             </div>
             </div>
-
             <img src={picture.dataUri} alt="slap" />
-
             <div className="flex justify-between mt-5">
             <div className="flex gap-5">
               <ShareButton onClick={() => shareFile(picture)} />

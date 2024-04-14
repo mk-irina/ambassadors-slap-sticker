@@ -11,7 +11,6 @@ export const WebcamFeed = ({handleVideoRef, handleCanvasRef, handleCapture}) => 
       width={2}
       height={2}
       onClick={handleCapture}
-      // className="max-w-screen-lg max-h-[550px]"
     />
   </section>
   )

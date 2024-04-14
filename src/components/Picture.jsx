@@ -22,7 +22,7 @@ export const Picture = ({picture}) => {
             </div>
             <img
                 alt={picture.title}
-                class="object-cover group-hover:scale-110 transition duration-300 ease-in-out"
+                className="object-cover group-hover:scale-110 transition duration-300 ease-in-out"
                 src={picture.dataUri}
             />
         </div>

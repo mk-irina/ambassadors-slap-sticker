@@ -1,23 +1,6 @@
 import { useEffect, useState } from "react";
-// import { createUseStyles } from "react-jss";
+import { Routes, Route } from "react-router-dom";
 import { useWebcamCapture } from "./useWebcamCapture";
-// import logo from './logo.svg'
-import logo from "./slap.png";
-import yoda from "./images/yoda.png";
-import golum from "./images/golum.png";
-import rick from "./images/rick.png";
-import face1 from "./images/face1.png";
-import face2 from "./images/face2.png";
-import face3 from "./images/face3.png";
-import face4 from "./images/face4.png";
-import face5 from "./images/face5.png";
-import dart from "./images/dart.png";
-import will from "./images/will.png";
-import hand from "./images/hand1.png";
-import slipper from "./images/slipper.png";
-
-import { Link, Routes, Route } from "react-router-dom";
-
 import { Header } from "./components/Header";
 import { StickersGallery } from "./components/StickersGallery";
 import { WebcamFeed } from "./components/WebcamFeed";
@@ -26,33 +9,11 @@ import { Modal } from "./components/Modal";
 import { Gallery } from "./pages/Gallery";
 import { EffectsGallery } from "./components/EffectsGallery";
 
-const stickers = [
-  logo,
-  yoda,
-  golum,
-  rick,
-  slipper,
-  face2,
-  face3,
-  face4,
-  face5,
-  dart,
-  will,
-  hand,
-].map((url) => {
-  const img = document.createElement("img");
-  img.src = url;
-  return { img, url };
-});
-
 function App(props) {
-  // css classes from JSS hook
-  // const classes = useStyles(props);
   // currently active sticker
   const [sticker, setSticker] = useState();
+  // currently active effect
   const [effect, setEffect] = useState();
-  // title for the picture that will be captured
-
   const [pictures, setPictures] = useState([]); // idealy should be fetched from server
 
   const savePicture = (picture) => {
@@ -95,7 +56,7 @@ function App(props) {
           path="/"
           element={
             <main className="w-4/5 max-w-screen-lg m-auto">
-              <StickersGallery setSticker={setSticker} stickers={stickers} />
+              <StickersGallery setSticker={setSticker} />
               <EffectsGallery setEffect={setEffect} />
               <WebcamFeed
                 handleCanvasRef={handleCanvasRef}

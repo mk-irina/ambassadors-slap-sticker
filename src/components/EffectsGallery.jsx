@@ -1,8 +1,7 @@
-import bwcat from '../images/bwcat.jpg';
-import catinsnow from '../images/catinsnow.png';
-import noeffect from '../images/noeffect.png';
+import bwcat from '../images/effects/bwcat.jpg';
+import catinsnow from '../images/effects/catinsnow.png';
+import noeffect from '../images/effects/noeffect.png';
 import { grayscaleEffectConfig, particlesEffectConfig } from '../effects/effects';
-
 
 const effects = [
     {url: noeffect, name: 'noeffect'}, 
@@ -14,8 +13,8 @@ export const EffectsGallery = ({setEffect}) => {
     const onSetEffect = (name) => {
         switch (name) {
             case 'noeffect':
-                 setEffect(undefined);
-                 break;
+                setEffect(undefined);
+                break;
             case 'grayscaleEffect':
                 setEffect(grayscaleEffectConfig);
                 break;
@@ -23,7 +22,7 @@ export const EffectsGallery = ({setEffect}) => {
                 setEffect(particlesEffectConfig);
                 break;
             default:
-                 setEffect(undefined)
+                setEffect(undefined)
         }
     }
     return (
