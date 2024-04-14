@@ -1,5 +1,5 @@
-import { Picture } from '../components/Picture';
 import { GiHand } from 'react-icons/gi';
+import { Picture } from '../components/Picture';
 
 export const Gallery = ({ pictures }) => {
   return (

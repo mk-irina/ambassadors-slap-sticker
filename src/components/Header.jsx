@@ -5,7 +5,7 @@ export const Header = () => {
     <header className="flex flex-col gap-6">
       <div className="flex flex-row justify-between items-center">
         <Link to="/">
-          <h1 className="text-4xl font-medium ">SlapSticker</h1>
+          <h1 className="text-4xl font-medium">SlapSticker</h1>
         </Link>
 
         <nav>

@@ -1,6 +1,6 @@
+import { saveAs } from 'file-saver';
 import { ShareButton } from './Button';
 import { DownloadButton } from './Button';
-import { saveAs } from 'file-saver';
 import { shareFile } from '../utils/shareFile';
 
 export const Picture = ({ picture }) => {

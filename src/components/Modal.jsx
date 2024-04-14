@@ -1,13 +1,11 @@
 import { Dialog } from '@material-tailwind/react';
 import { useEffect, useState } from 'react';
-import { ShareButton } from './Button';
-import { DownloadButton } from './Button';
 import { SlPicture } from 'react-icons/sl';
 import { SlClose } from 'react-icons/sl';
-import { Button, IconButton } from './Button';
 import { Link } from 'react-router-dom';
 import { saveAs } from 'file-saver';
 import { shareFile } from '../utils/shareFile';
+import { Button, IconButton, ShareButton, DownloadButton } from './Button';
 
 export const Modal = ({ picture, onPictureReset, onPictureUpdate }) => {
   const DEFAULT_TITLE = 'SLAPPE!';

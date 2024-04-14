@@ -14,7 +14,8 @@ function App(props) {
   const [sticker, setSticker] = useState();
   // currently active effect
   const [effect, setEffect] = useState();
-  const [pictures, setPictures] = useState([]); // idealy should be fetched from server
+  // stores pictures into the gallary. Idealy should be fetched from a server
+  const [pictures, setPictures] = useState([]);
 
   const savePicture = (picture) => {
     setPictures((prevState) => {
@@ -37,13 +38,14 @@ function App(props) {
     handleCanvasRef, // callback function to set ref for main canvas element
     handleCapture, // callback function to trigger taking the picture
     picture, // latest captured picture data object
-    resetPicture
+    resetPicture // resets captured picture data object
   ] = useWebcamCapture(sticker?.img, 'SLAPPE!', effect);
 
   useEffect(() => {
     if (picture === undefined) {
       return;
     }
+
     savePicture(picture);
   }, [picture]);
 
@@ -73,6 +75,8 @@ function App(props) {
         />
         {/* /** * Readme route */}
         <Route path="/readme" element={<Readme />} />
+
+        {/* /** * Gallery route */}
         <Route path="/gallery" element={<Gallery pictures={pictures} />} />
       </Routes>
     </div>

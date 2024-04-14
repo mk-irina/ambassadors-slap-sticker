@@ -28,6 +28,7 @@ export const EffectsGallery = ({ setEffect }) => {
         setEffect(undefined);
     }
   };
+
   return (
     <section className="flex flex-col gap-5 my-10">
       <h3 className="text-2xl">Select your effect...</h3>
