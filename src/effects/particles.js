@@ -1,4 +1,4 @@
-import { applyGrayscaleEffect } from "./grayscale";
+import { applyGrayscaleEffect } from './grayscale';
 
 export class Particle {
   constructor(canvasWidth, canvasHeight, ctx) {
@@ -29,7 +29,7 @@ export class Particle {
 
   render = () => {
     this.ctx.beginPath();
-    this.ctx.fillStyle = "#efefef";
+    this.ctx.fillStyle = '#efefef';
     this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
     this.ctx.fill();
   };

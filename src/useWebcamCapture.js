@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 export const useWebcamCapture = (stickerImg, title, effect) => {
   const [videoRef, setVideoRef] = useState();
@@ -24,9 +24,9 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
         .getUserMedia({
           video: {
             width: { min: 1024, ideal: 1280, max: 1920 },
-            height: { min: 576, ideal: 720, max: 1080 },
+            height: { min: 576, ideal: 720, max: 1080 }
           },
-          audio: false,
+          audio: false
         })
         .then(function (stream) {
           videoRef.srcObject = stream;
@@ -40,14 +40,14 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
         const width = videoRef.videoWidth;
         const height = videoRef.videoHeight / (videoRef.videoWidth / width);
 
-        videoRef.setAttribute("width", width);
-        videoRef.setAttribute("height", height);
-        canvasRef.setAttribute("width", width);
-        canvasRef.setAttribute("height", height);
-        videoRef.removeEventListener("canplay", onCanPlay, false);
+        videoRef.setAttribute('width', width);
+        videoRef.setAttribute('height', height);
+        canvasRef.setAttribute('width', width);
+        canvasRef.setAttribute('height', height);
+        videoRef.removeEventListener('canplay', onCanPlay, false);
       };
 
-      videoRef.addEventListener("canplay", onCanPlay, false);
+      videoRef.addEventListener('canplay', onCanPlay, false);
       setInitialized(true);
     } else if (!videoRef || !canvasRef) {
       setInitialized(false);
@@ -62,17 +62,17 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
     }
 
     if (canvasRef && videoRef) {
-      const ctx = canvasRef.getContext("2d", { willReadFrequently: true });
-      let width = canvasRef.getAttribute("width");
-      let height = canvasRef.getAttribute("height");
+      const ctx = canvasRef.getContext('2d', { willReadFrequently: true });
+      let width = canvasRef.getAttribute('width');
+      let height = canvasRef.getAttribute('height');
 
       if (effect) {
         effect.init(width, height, ctx);
       }
 
       const renderFrame = () => {
-        width = canvasRef.getAttribute("width");
-        height = canvasRef.getAttribute("height");
+        width = canvasRef.getAttribute('width');
+        height = canvasRef.getAttribute('height');
 
         ctx.reset();
 
@@ -109,11 +109,11 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
       const onMouseMove = (ev) => {
         mousePos.current = { x: ev.clientX, y: ev.clientY };
       };
-      canvasRef.addEventListener("mousemove", onMouseMove);
-      canvasRef.addEventListener("mousedown", onMouseMove);
+      canvasRef.addEventListener('mousemove', onMouseMove);
+      canvasRef.addEventListener('mousedown', onMouseMove);
       return () => {
-        canvasRef.removeEventListener("mousemove", onMouseMove);
-        canvasRef.removeEventListener("mousedown", onMouseMove);
+        canvasRef.removeEventListener('mousemove', onMouseMove);
+        canvasRef.removeEventListener('mousedown', onMouseMove);
       };
     }
   }, [canvasRef]);
@@ -121,7 +121,7 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
   const onCapture = useCallback(
     (ev) => {
       if (canvasRef) {
-        const data = canvasRef.toDataURL("image/png");
+        const data = canvasRef.toDataURL('image/png');
         setPicture({ dataUri: data, title });
       }
     },
@@ -136,6 +136,6 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
     onCapture,
     picture,
     setPicture,
-    resetPicture,
+    resetPicture
   ];
 };

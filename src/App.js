@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useWebcamCapture } from "./useWebcamCapture";
-import { Header } from "./components/Header";
-import { StickersGallery } from "./components/StickersGallery";
-import { WebcamFeed } from "./components/WebcamFeed";
-import { Readme } from "./pages/Readme";
-import { Modal } from "./components/Modal";
-import { Gallery } from "./pages/Gallery";
-import { EffectsGallery } from "./components/EffectsGallery";
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useWebcamCapture } from './useWebcamCapture';
+import { Header } from './components/Header';
+import { StickersGallery } from './components/StickersGallery';
+import { WebcamFeed } from './components/WebcamFeed';
+import { Readme } from './pages/Readme';
+import { Modal } from './components/Modal';
+import { Gallery } from './pages/Gallery';
+import { EffectsGallery } from './components/EffectsGallery';
 
 function App(props) {
   // currently active sticker
@@ -37,8 +37,8 @@ function App(props) {
     handleCanvasRef, // callback function to set ref for main canvas element
     handleCapture, // callback function to trigger taking the picture
     picture, // latest captured picture data object
-    resetPicture,
-  ] = useWebcamCapture(sticker?.img, "SLAPPE!", effect);
+    resetPicture
+  ] = useWebcamCapture(sticker?.img, 'SLAPPE!', effect);
 
   useEffect(() => {
     if (picture === undefined) {

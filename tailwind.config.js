@@ -1,10 +1,10 @@
-import withMT from "@material-tailwind/react/utils/withMT";
+import withMT from '@material-tailwind/react/utils/withMT';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withMT({
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 });

@@ -1,17 +1,19 @@
-export const WebcamFeed = ({handleVideoRef, handleCanvasRef, handleCapture}) => {
-    return (
+export const WebcamFeed = ({
+  handleVideoRef,
+  handleCanvasRef,
+  handleCapture
+}) => {
+  return (
     <section className="flex flex-col gap-5">
-      <h3 className="text-2xl">
-        Slap yourself!
-      </h3>
+      <h3 className="text-2xl">Slap yourself!</h3>
 
-    <video ref={handleVideoRef} />
-    <canvas
-      ref={handleCanvasRef}
-      width={2}
-      height={2}
-      onClick={handleCapture}
-    />
-  </section>
-  )
-}
+      <video ref={handleVideoRef} />
+      <canvas
+        ref={handleCanvasRef}
+        width={2}
+        height={2}
+        onClick={handleCapture}
+      />
+    </section>
+  );
+};
