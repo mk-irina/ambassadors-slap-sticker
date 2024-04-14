@@ -6,9 +6,9 @@ export const StickersGallery = ({setSticker, stickers}) => {
           </h3>
       
       <div className="flex  gap-3 w-full overflow-x-auto">
-      {stickers.map((sticker, ind) => {
+      {stickers.map((sticker, idx) => {
           return (
-          <button onClick={() => setSticker(sticker)} key={ind} className="size-28 shadow-sm bg-white rounded-md flex-shrink-0">
+          <button onClick={() => setSticker(sticker)} key={idx} className="size-28 shadow-sm bg-white rounded-md flex-shrink-0">
             <img src={sticker.url} alt="slap" className="h-full w-full object-contain"/>
           </button>
           )

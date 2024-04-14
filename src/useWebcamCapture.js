@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export const useWebcamCapture = (stickerImg, title) => {
+export const useWebcamCapture = (stickerImg, title, effect) => {
   const [videoRef, setVideoRef] = useState();
   const [canvasRef, setCanvasRef] = useState();
   const [picture, setPicture] = useState();
@@ -49,17 +49,29 @@ export const useWebcamCapture = (stickerImg, title) => {
     } else if (!videoRef || !canvasRef) {
       setInitialized(false);
     }
-  }, [videoRef, canvasRef, initialized]);
+  }, [videoRef, canvasRef, initialized, effect]);
 
   const mousePos = useRef({ x: 0, y: 0 });
 
   const startRenderLoop = useCallback(() => {
     if (canvasRef && videoRef) {
+      const ctx = canvasRef.getContext("2d", { willReadFrequently: true });
+      let width = canvasRef.getAttribute("width");
+      let height = canvasRef.getAttribute("height");
+
+      if (effect) {
+        effect.init(width, height, ctx);
+      }
+
       const renderFrame = () => {
-        const ctx = canvasRef.getContext("2d");
-        const width = canvasRef.getAttribute("width");
-        const height = canvasRef.getAttribute("height");
+        width = canvasRef.getAttribute("width");
+        height = canvasRef.getAttribute("height");
+
         ctx.drawImage(videoRef, 0, 0, width, height);
+
+        if (effect) {
+          effect.render(width, height, ctx);
+        }
 
         if (stickerImg) {
           const bb = canvasRef.getBoundingClientRect();
@@ -77,7 +89,7 @@ export const useWebcamCapture = (stickerImg, title) => {
       };
       requestAnimationFrame(renderFrame);
     }
-  }, [canvasRef, videoRef, stickerImg]);
+  }, [canvasRef, videoRef, stickerImg, effect]);
 
   useEffect(() => {
     startRenderLoop();
