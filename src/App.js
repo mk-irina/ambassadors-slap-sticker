@@ -50,7 +50,7 @@ function App(props) {
   }, [picture]);
 
   return (
-    <div className="bg-[#F1F3F5] max-w-full py-12 px-20">
+    <div className="max-w-full py-12 px-20 bg-gradient-to-r from-indigo-50 from-20% to-rose-50">
       <Header />
       <Routes>
         {/* /** * Main app route */}
@@ -76,7 +76,7 @@ function App(props) {
         {/* /** * Readme route */}
         <Route path="/readme" element={<Readme />} />
 
-        {/* /** * Gallery route */}
+        {/* /** * Readme route */}
         <Route path="/gallery" element={<Gallery pictures={pictures} />} />
       </Routes>
     </div>

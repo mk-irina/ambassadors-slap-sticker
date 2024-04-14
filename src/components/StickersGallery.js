@@ -18,9 +18,11 @@ import slap1 from '../images/stickers/slap1.png';
 import slipper from '../images/stickers/slipper.png';
 import will from '../images/stickers/will.png';
 import yoda from '../images/stickers/yoda.png';
+import pawslap from '../images/stickers/pawslap.png';
 
 const stickers = [
   slap,
+  pawslap,
   slap1,
   slipper,
   slapcat,
@@ -41,7 +43,7 @@ const stickers = [
   face5,
   hand
 ].map((url) => {
-  const img = document.createElement("img");
+  const img = document.createElement('img');
   img.src = url;
   return { img, url };
 });
@@ -57,7 +59,7 @@ export const StickersGallery = ({ setSticker }) => {
             <button
               onClick={() => setSticker(sticker)}
               key={idx}
-              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0 sticker-button"
+              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0 sticker-button hover:scale-110 transition duration-300 ease-in-out"
             >
               <img
                 src={sticker.url}

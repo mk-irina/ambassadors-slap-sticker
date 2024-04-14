@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Gallery } from './Gallery';
+import { Gallery } from '../Gallery';
 
 test('renders gallery page', async () => {
   const { container } = render(<Gallery pictures={[{}]} />);

@@ -39,7 +39,7 @@ export const EffectsGallery = ({ setEffect }) => {
             <button
               onClick={() => onSetEffect(effect.name)}
               key={idx}
-              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0 effects-button"
+              className="size-28 shadow-sm bg-white rounded-md flex-shrink-0 effects-button hover:scale-110 transition duration-300 ease-in-out"
             >
               <img
                 src={effect.url}
