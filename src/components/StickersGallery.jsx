@@ -40,7 +40,11 @@ const stickers = [
   face3,
   face5,
   hand
-];
+].map((url) => {
+  const img = document.createElement("img");
+  img.src = url;
+  return { img, url };
+});
 
 export const StickersGallery = ({ setSticker }) => {
   return (
@@ -56,7 +60,7 @@ export const StickersGallery = ({ setSticker }) => {
               className="size-28 shadow-sm bg-white rounded-md flex-shrink-0"
             >
               <img
-                src={sticker}
+                src={sticker.url}
                 alt="slap"
                 className="h-full w-full object-contain"
               />
