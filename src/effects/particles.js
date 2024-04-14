@@ -42,15 +42,16 @@ export class Particles {
   }
 
   init = (width, height, ctx) => {
-    this.reset();
+    this.reset(ctx);
 
     for (let i = 0; i < this.numberOfParticles; i++) {
       this.particles.push(new Particle(width, height, ctx));
     }
   };
 
-  reset = () => {
+  reset = (ctx) => {
     this.particles = [];
+    ctx.reset();
   };
 
   render = (width, height, ctx) => {

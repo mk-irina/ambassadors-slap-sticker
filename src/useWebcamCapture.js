@@ -5,6 +5,9 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
   const [canvasRef, setCanvasRef] = useState();
   const [picture, setPicture] = useState();
 
+  // Track active animation frame to cancel before startRenderLoop re-render
+  const activeAminationFrame = useRef(0);
+
   const onVideoRef = useCallback((node) => {
     setVideoRef(node);
   });
@@ -49,11 +52,15 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
     } else if (!videoRef || !canvasRef) {
       setInitialized(false);
     }
-  }, [videoRef, canvasRef, initialized, effect]);
+  }, [videoRef, canvasRef, initialized]);
 
   const mousePos = useRef({ x: 0, y: 0 });
 
   const startRenderLoop = useCallback(() => {
+    if (activeAminationFrame.current) {
+      cancelAnimationFrame(activeAminationFrame.current);
+    }
+
     if (canvasRef && videoRef) {
       const ctx = canvasRef.getContext("2d", { willReadFrequently: true });
       let width = canvasRef.getAttribute("width");
@@ -66,6 +73,8 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
       const renderFrame = () => {
         width = canvasRef.getAttribute("width");
         height = canvasRef.getAttribute("height");
+
+        ctx.reset();
 
         ctx.drawImage(videoRef, 0, 0, width, height);
 
@@ -85,9 +94,9 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
             width * 0.4
           );
         }
-        requestAnimationFrame(renderFrame);
+        activeAminationFrame.current = requestAnimationFrame(renderFrame);
       };
-      requestAnimationFrame(renderFrame);
+      renderFrame();
     }
   }, [canvasRef, videoRef, stickerImg, effect]);
 

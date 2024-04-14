@@ -1,7 +1,7 @@
 import { Particles } from "./particles";
 import { applyGrayscaleEffect } from "./grayscale";
 
-const NUMBER_OF_PARTICLES = 1000;
+const NUMBER_OF_PARTICLES = 2000;
 
 const particles = new Particles(NUMBER_OF_PARTICLES);
 
