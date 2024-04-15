@@ -3,9 +3,9 @@ import { Picture } from '../components/Picture';
 
 export const Gallery = ({ pictures }) => {
   return (
-    <div className="max-w-screen-xl mt-14 m-auto">
+    <div className="max-w-screen-xl h-full mt-14 m-auto">
       {pictures.length ? (
-        <div className="flex justify-start items-center gap-4 flex-wrap">
+        <div className="flex justify-start items-center gap-3 justify-self-center flex-wrap">
           {pictures.map((picture, idx) => (
             <Picture key={idx} picture={picture} />
           ))}

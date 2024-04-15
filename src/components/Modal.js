@@ -35,7 +35,7 @@ export const Modal = ({ picture, onPictureReset, onPictureUpdate }) => {
 
   return (
     <Dialog
-      size="xl"
+      size="lg"
       open={open}
       handler={handleModal}
       className="py-5 px-7 flex flex-col gap-5 text-[#23374B]"

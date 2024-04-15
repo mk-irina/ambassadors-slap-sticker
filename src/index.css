@@ -7,7 +7,12 @@ video {
 }
 
 body {
-  background-color: #f1f3f5;
+  background: rgb(238, 242, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 242, 255, 1) 30%,
+    rgba(255, 241, 242, 1) 100%
+  );
   color: #23374b;
   height: 100vh;
 }

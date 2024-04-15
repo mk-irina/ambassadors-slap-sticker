@@ -50,7 +50,7 @@ const stickers = [
 
 export const StickersGallery = ({ setSticker }) => {
   return (
-    <section className="flex flex-col gap-5 mt-14 mb-10">
+    <section className="flex flex-col gap-5 my-10">
       <h3 className="text-2xl">Select your sticker...</h3>
 
       <div className="flex  gap-3 w-full overflow-x-auto">

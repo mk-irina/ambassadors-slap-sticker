@@ -50,7 +50,7 @@ function App(props) {
   }, [picture]);
 
   return (
-    <div className="max-w-full py-12 px-20 bg-gradient-to-r from-indigo-50 from-20% to-rose-50">
+    <div className="max-w-full py-12 px-20">
       <Header />
       <Routes>
         {/* /** * Main app route */}

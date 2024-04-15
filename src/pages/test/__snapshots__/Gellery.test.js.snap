@@ -3,13 +3,13 @@
 exports[`renders gallery page 1`] = `
 <div>
   <div
-    class="max-w-screen-xl mt-14 m-auto"
+    class="max-w-screen-xl h-full mt-14 m-auto"
   >
     <div
-      class="flex justify-start items-center gap-4 flex-wrap"
+      class="flex justify-start items-center gap-3 justify-self-center flex-wrap"
     >
       <div
-        class="overflow-hidden cursor-pointer rounded-xl relative group w-[49%]"
+        class="overflow-hidden cursor-pointer rounded-xl relative group w-full lg:w-[49%]"
       >
         <div
           class="rounded-xl z-50 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out cursor-pointer absolute from-black/80 to-transparent bg-gradient-to-t inset-x-0 -bottom-2 pt-30 flex items-end"

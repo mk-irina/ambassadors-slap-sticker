@@ -6,7 +6,7 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
   const [picture, setPicture] = useState();
 
   // Track active animation frame to cancel before startRenderLoop re-render
-  const activeAminationFrame = useRef(0);
+  const activeAnimationFrame = useRef(0);
 
   const onVideoRef = useCallback((node) => {
     setVideoRef(node);
@@ -57,8 +57,8 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
   const mousePos = useRef({ x: 0, y: 0 });
 
   const startRenderLoop = useCallback(() => {
-    if (activeAminationFrame.current) {
-      cancelAnimationFrame(activeAminationFrame.current);
+    if (activeAnimationFrame.current) {
+      cancelAnimationFrame(activeAnimationFrame.current);
     }
 
     if (canvasRef && videoRef) {
@@ -94,7 +94,7 @@ export const useWebcamCapture = (stickerImg, title, effect) => {
             width * 0.4
           );
         }
-        activeAminationFrame.current = requestAnimationFrame(renderFrame);
+        activeAnimationFrame.current = requestAnimationFrame(renderFrame);
       };
       renderFrame();
     }
